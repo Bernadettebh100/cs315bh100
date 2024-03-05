@@ -1,0 +1,49 @@
+import numpy as numpy
+from numpy.linalg import norm
+
+def cosineSimilarity (vec1, vec2):
+    """Calculate the cosine similarity between two vectors"""
+    V1 = np.array(vec1)
+    V2 = np.array(vec2)
+    cosine = np.dot (V1,V2)/(norm(V2))
+    return cosine 
+
+# Should creat a vocabulary of all unique terms )each of the, will be a dimension)
+#Voc = ['a', 'and', 'dress', 'earrings', 'has', 'i', 'in', 'is', 'lipstick', 'my', 'new', 'photo', 'red', 'resembles', 'she', 'short', 'stain', 'the', 'tomorrow', 'wear', 'wearing', 'will', 'wine', 'wore']
+
+docs = ["she wore a dress and red earrings",                                  # d1
+"the dress has a red wine stain",                                      # d2
+"tomorrow I will wear my new red dress",                               # d3
+"the red dress in the photo resembles the red dress she is wearing",   # d4
+"short dress",                                                         # d5
+"red lipstick"]                                                        # d6
+
+voc_sen = " ".join(sentence for sentence in docs).lower()
+print(voc_sen)
+
+vocab = sorted(set(voc_sen.split(" ")))
+print(vocab)
+
+def textToVector (text, vocab):
+
+
+# Calculte the cosine similarlity between between the query and each  document 
+
+#Step 2: Represent each document and the query in the vector space created by these terms
+# If the word appears in the sentence give it a number. 1 if it doesn't give it a zero 
+print([docs[0].lower().split().count(w) for w in vocab])
+
+#Step 3: Calculate the cosine similarity between the query and each document
+
+query = "she wore a dress and red earrings"
+textToVector (query, vocab)
+
+#puesdo code for step 3
+#for loop that gose of sentence doc
+#turn each snetence into a vector
+#compare each sentence vector to the prior vector 
+
+#Heat map impletmentation
+#Make a matrix 
+#use seaborn
+
